@@ -17,7 +17,6 @@ const ManageTasks = () => {
         }
     })
 
-    const [players, setPlayers] = useState([tasks])
 
 
     return (

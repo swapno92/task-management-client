@@ -16,22 +16,31 @@ const NavBar = () => {
     const items = (
 
         <>
-            <li className={` text-lg text-white font-semibold `}>
+            <li data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000" 
+                className={` text-lg text-white font-semibold `}>
                 <NavLink className={({ isActive }) =>
                     isActive ? "text-black border-2 border-[#4fb6ff] bg-[#42e3c3]":""
                 } to="/">Home</NavLink>
             </li>
-            <li className={` text-lg md:text-white font-semibold`}>
+            <li data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000" className={` text-lg md:text-white font-semibold`}>
                 <NavLink className={({ isActive }) =>
                     isActive ? "bg-[#42e3c3] border-2 border-[#4fb6ff]" : ""
                 } to="/dashboard/home">Dashboard</NavLink>
             </li>
-            <li className={` text-lg md:text-white font-semibold`}>
+            <li data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000" className={` text-lg md:text-white font-semibold`}>
                 <NavLink className={({ isActive }) =>
                     isActive ? "bg-[#42e3c3] border-2 border-[#4fb6ff]" : ""
                 } to="/about">About</NavLink>
             </li>
-            <li className={`${user ? 'hidden' : 'block'} text-lg md:text-white font-semibold `}>
+            <li data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000" className={`${user ? 'hidden' : 'block'} text-lg md:text-white font-semibold `}>
                 <NavLink className={({ isActive }) =>
                     isActive ? "bg-[#42e3c3] border-2 border-[#4fb6ff]" : ""
                 } to="/login">Login</NavLink>
@@ -76,7 +85,9 @@ const NavBar = () => {
                     className="md:ml-0 -ml-2 w-8  rounded-full"
                     alt=""
                 />
-                <a className="md:ml-0 text-gray-200 -ml-2 pr-0 btn btn-ghost normal-case text-3xl font-bold font-serif">
+                <a data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="1000" className="md:ml-0 text-gray-200 -ml-2 pr-0 btn btn-ghost normal-case text-3xl font-bold font-serif">
                     Task Management
                 </a>
             </div>
