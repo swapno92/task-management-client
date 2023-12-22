@@ -1,4 +1,4 @@
-import {  NavLink, Outlet, useNavigate } from "react-router-dom";
+import {  Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { MdDashboard } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { useContext } from "react";
@@ -39,8 +39,13 @@ const Dashboard = () => {
                             <CgProfile></CgProfile>
                             Create Task</NavLink>
                     </li>
+                    <div className="flex justify-center items-center ">
+                        <Link to='/' className=" border hover:border-[#4fb6ff] hover:bg-[#42e3c3]  bg-gray-300 px-2  rounded-lg py-2 font-semibold cursor-pointer">
+                            Go Home
+                        </Link>
+                    </div>
                     <div className="flex justify-center items-center relative">
-                        <a onClick={handleLogOut} className=" border hover:border-[#4fb6ff] hover:bg-[#42e3c3]  bg-gray-300 px-2 pr-8 rounded-lg py-2 font-semibold cursor-pointer">
+                        <a onClick={handleLogOut} className=" border hover:border-[#4fb6ff] hover:bg-[#42e3c3]  bg-gray-500 text-white px-2 pr-8 rounded-lg py-2 font-semibold cursor-pointer">
                             Sign Out 
                         </a>
                         <LuLogOut className="absolute md:right-[70px] right-[130px]"></LuLogOut>

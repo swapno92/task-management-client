@@ -18,7 +18,7 @@ const CreateTask = () => {
         const newTask = { title, email, description, deadline, priority }
         console.log(newTask)
 
-        fetch("http://localhost:5000/tasks", {
+        fetch("https://task-management-server-black.vercel.app/tasks", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -30,13 +30,13 @@ const CreateTask = () => {
                 console.log(data);
                 swal('Added Posts Successfully')
             });
-        console.log('ok')
+        // console.log('ok')
     }
     return (
         <div className="">
             <h2 className="text-center text-2xl font-bold my-3 underline">Create Task</h2>
             <form onSubmit={handleCreateTask}>
-                <div className="my-4 mx-4  py-3 rounded-lg border border-purple-500">
+                <div className="my-4 md:mx-4  py-3 rounded-lg border border-purple-500">
                     <div className="space-y-1 mt-8 flex items-center">
                         <h3 className="text-lg font-semibold ml-8">Task Title : </h3>
                         <input

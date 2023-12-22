@@ -26,6 +26,11 @@ const NavBar = () => {
                     isActive ? "bg-[#42e3c3] border-2 border-[#4fb6ff]" : ""
                 } to="/dashboard/home">Dashboard</NavLink>
             </li>
+            <li className={` text-lg md:text-white font-semibold`}>
+                <NavLink className={({ isActive }) =>
+                    isActive ? "bg-[#42e3c3] border-2 border-[#4fb6ff]" : ""
+                } to="/about">About</NavLink>
+            </li>
             <li className={`${user ? 'hidden' : 'block'} text-lg md:text-white font-semibold `}>
                 <NavLink className={({ isActive }) =>
                     isActive ? "bg-[#42e3c3] border-2 border-[#4fb6ff]" : ""

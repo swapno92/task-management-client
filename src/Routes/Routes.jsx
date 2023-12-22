@@ -10,6 +10,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import CreateTask from "../Pages/Dashboard/Dashboard/CreateTask";
 import ManageTasks from "../Pages/Dashboard/ManageTasks";
 import UpdateTask from "../Pages/Dashboard/UpdateTask";
+import About from "../Pages/Home/About/About";
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'about',
+                element: <About></About>
             }
         ]
     },
@@ -45,7 +50,7 @@ export const router = createBrowserRouter([
             {
                 path: 'update/:id',
                 element: <UpdateTask></UpdateTask>,
-                loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`)
+                loader: ({ params }) => fetch(`https://task-management-server-black.vercel.app/tasks/${params.id}`)
             }
         ],
     }
