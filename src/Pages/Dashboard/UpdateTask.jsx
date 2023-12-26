@@ -15,7 +15,7 @@ const UpdateTask = () => {
         const description = form.description.value
         const updateTask = { title, description, deadline, priority }
         console.log(updateTask)
-        fetch(`https://task-management-server-black.vercel.app/tasks/${_id}`, {
+        fetch(`http://localhost:5000/tasks/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

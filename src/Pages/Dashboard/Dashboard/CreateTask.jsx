@@ -8,17 +8,16 @@ const CreateTask = () => {
     const handleCreateTask = event => {
         event.preventDefault()
         const form = event.target;
-
+        const status = 'todo'
         const title = form.title.value
         const deadline = form.deadline.value
         const priority = form.priority.value
         const email = form.email.value
         const description = form.description.value
-        console.log(priority)
-        const newTask = { title, email, description, deadline, priority }
+        const newTask = { title, status ,email, description, deadline, priority }
         console.log(newTask)
 
-        fetch("https://task-management-server-black.vercel.app/tasks", {
+        fetch("http://localhost:5000/tasks", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -86,6 +85,7 @@ const CreateTask = () => {
                             placeholder="User Email"
                         />
                     </div>
+
                 </div>
                 <div className=" flex justify-center items-center mt-8">
                     <button className=" bg-gray-700 text-white rounded-lg px-12 py-3">

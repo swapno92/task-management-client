@@ -1,54 +1,51 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import ManageTask from "./ManageTask";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 const ManageTasks = () => {
     const axiosPublic = useAxiosPublic();
     const { user } = useContext(AuthContext)
-    // console.log(user)
 
-    const { data: tasks = [], refetch } = useQuery({
+    const { data: firstNewTask = [], refetch } = useQuery({
         queryKey: ['menu'],
         queryFn: async () => {
             const res = await axiosPublic.get(`myTasks/${user?.email}`);
             return res.data;
         }
     })
+    const [tasks, setTasks] = ([firstNewTask])
 
+    const [todos, setTodos] = useState([])
+    const [inProgress, setInProgress] = useState([])
+    const [closed, setClosed] = useState([])
+
+    useEffect(() => {
+        const fTodos = tasks.filter(task => task.status === 'todo')
+        const fInProgress = tasks.filter(task => task.status === 'inprogress')
+        const fClosed = tasks.filter(task => task.status === 'closed')
+
+        setTodos(fTodos)
+        setInProgress(fInProgress)
+        setClosed(fClosed)
+
+    }, [tasks])
+
+    const statuses = ["todo", "inprogress", "closed"]
 
 
     return (
         <>
-            <div className="">
-                <h2 className="text-center text-2xl font-bold my-3 underline mb-2">To Do List</h2>
-                <div className="space-y-2 line bg-yellow-50 min-h-80 p-3 rounded-lg">
+            <DndProvider backend={HTML5Backend}>
+                <div className="min-h-80 px-3 rounded-lg space-y-8">
                     {
-                        tasks.map(task => <ManageTask key={task._id} task={task} refetch={refetch}  ></ManageTask>)
+                        statuses.map((sta, index) => <ManageTask key={index} sta={sta} refetch={refetch} closed={closed} inProgress={inProgress} todos={todos} tasks={tasks} setTasks={setTasks}  ></ManageTask>)
                     }
                 </div>
-                <h2 className="text-center text-2xl font-bold my-3 underline mb-2">On Going Task</h2>
-                <div className="space-y-1 bg-gray-400 min-h-80 p-3 rounded-lg" >
-                    {/* {
-                        tasks.map(task => <ManageTask key={task._id} task={task} refetch={refetch}></ManageTask>)
-                    } */}
-                </div>
-                <h2 className="text-center text-2xl font-bold my-3 underline mb-2">Completed Task</h2>
-                <div className="space-y-1 bg-gray-400 min-h-80 p-3 rounded-lg">
-                    {/* {
-                    tasks.map(task => <ManageTask key={task._id} task={task} refetch={refetch}></ManageTask>)
-                } */}
-                </div>
-            </div>
-
-
-
-
-
-
-
-
+            </DndProvider>
         </>
     );
 };

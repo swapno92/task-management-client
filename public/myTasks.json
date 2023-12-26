@@ -1,5 +1,6 @@
 [
   {
+    "status":"todo",
     "title": "Debug Login Page Issue",
     "description": "Users are reporting difficulties when attempting to log in to the application. This task is to investigate and debug the login page issue to identify the root cause and implement a solution.",
     "deadline": "2023-01-31",
@@ -7,24 +8,27 @@
     "email":"swapnodey23@gmail.com"
   },
   {
+    "status": "todo",
     "title": "Optimize Database Queries",
     "description": "Review existing database queries in your application.Identify frequently executed queries and those with high resource usage.Use database profiling tools to analyze query performance.",
     "deadline": "2023-02-15",
     "priority": "Medium",
-     "email":"swapnodey23@gmail.com"
+    "email": "swapnodey23@gmail.com"
   },
   {
+    "status": "todo",
     "title": "Test Mobile Responsiveness",
     "description": "Verify and ensure that the website/application displays and functions correctly on a variety of mobile devices. The goal is to guarantee a consistent and user-friendly experience for users accessing the platform from smartphones and tablets.",
     "deadline": "2023-03-31",
     "priority": "High",
-     "email":"swapnodey23@gmail.com"
+    "email": "swapnodey23@gmail.com"
   },
   {
+    "status": "todo",
     "title": "Refactor CSS Styles",
     "description": "Combine redundant styles and organize them logically to reduce duplication and make the stylesheet more modular.",
     "deadline": "2023-02-10",
     "priority": "Low",
-     "email":"swapnodey23@gmail.com"
+    "email": "swapnodey23@gmail.com"
   }
 ]
