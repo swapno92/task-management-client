@@ -17,7 +17,7 @@ const CreateTask = () => {
         const newTask = { title, status ,email, description, deadline, priority }
         console.log(newTask)
 
-        fetch("http://localhost:5000/tasks", {
+        fetch("https://task-management-server-black.vercel.app/tasks", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -27,7 +27,7 @@ const CreateTask = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                swal('Added Posts Successfully')
+                swal('Added Task Successfully')
             });
         // console.log('ok')
     }

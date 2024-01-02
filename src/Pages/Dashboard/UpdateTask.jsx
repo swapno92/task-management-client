@@ -15,7 +15,7 @@ const UpdateTask = () => {
         const description = form.description.value
         const updateTask = { title, description, deadline, priority }
         console.log(updateTask)
-        fetch(`http://localhost:5000/tasks/${_id}`, {
+        fetch(`https://task-management-server-black.vercel.app/tasks/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -28,7 +28,7 @@ const UpdateTask = () => {
                 // if (data.modifiedCount > 0) {
                 Swal.fire({
                     title: 'Success!',
-                    text: 'Assignment Updated successfully',
+                    text: 'Task Updated successfully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                 })

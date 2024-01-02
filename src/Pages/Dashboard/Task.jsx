@@ -35,7 +35,7 @@ const Task = ({ task, tasks, setTasks, refetch }) => {
                             refetch();
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                text: "Your Task has been deleted.",
                                 icon: "success"
                             });
                         }
@@ -72,7 +72,7 @@ const Task = ({ task, tasks, setTasks, refetch }) => {
                         <button onClick={() => handleDelete(_id)} className="btn bg-red-300">Delete <MdFolderDelete className="text-2xl text-red-900"></MdFolderDelete></button>
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>
     </div>
 }

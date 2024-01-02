@@ -4,7 +4,7 @@ import swal from "sweetalert";
 import Task from "./Task";
 
 
-const ManageTask = ({ sta, setTasks, todos, refetch, inProgress, closed, tasks }) => {
+const ManageTask = ({ sta, setTasks, todos, refetch, OnGoing, completed, tasks }) => {
 
     const [{ isOver }, drop] = useDrop(() => ({
         accept: 'task',
@@ -14,21 +14,21 @@ const ManageTask = ({ sta, setTasks, todos, refetch, inProgress, closed, tasks }
         })
     }))
 
-    let text = "To Do List"
+    let text = "To Do"
     let tasksToMap = todos
-    if (sta === 'inprogress') {
-        text = "On Going Task"
-        tasksToMap = inProgress
+    if (sta === 'OnGoing') {
+        text = "OnGoing"
+        tasksToMap = OnGoing
     }
 
-    if (sta === "closed") {
-        text = "Completed Task"
-        tasksToMap = closed
+    if (sta === "completed") {
+        text = "Completed"
+        tasksToMap = completed
     }
     const addItemToSection = id => {
         const status = sta
         const updateTask = { status }
-        fetch(`http://localhost:5000/taskspro/${id}`, {
+        fetch(`https://task-management-server-black.vercel.app/taskspro/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -44,10 +44,14 @@ const ManageTask = ({ sta, setTasks, todos, refetch, inProgress, closed, tasks }
     }
 
     return (
-        <div ref={drop} className={`line space-y-2 ${isOver ? 'bg-slate-200' : ''}  bg-yellow-50 min-h-80 p-3 rounded-lg `}>
+        <div ref={drop} className={`line space-y-2 ${isOver ? 'bg-slate-200' : ''}  bg-yellow-50 min-h-44  p-3 rounded-lg `}>
             <h2 className=" text-center text-2xl font-bold underline mb-2">{text}</h2>
-            {tasksToMap.length > 0 && tasksToMap.map(task => (<Task key={task._id} task={task} tasks={tasks} setTasks={setTasks} refetch={refetch} />
-            ))}
+            {
+                tasksToMap.length > 0 ? tasksToMap.map(task => (<Task key={task._id} task={task} tasks={tasks} setTasks={setTasks} refetch={refetch} />
+                ))
+                :
+                    <div className="text-3xl font-bold font-serif  text-center "><h2 className=" md:w-1/2 mx-auto line mt-10  rounded-2xl">No Task <span  className="text-green-600">{text}</span> list</h2></div>
+        }
         </div>
 
     );
